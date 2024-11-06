@@ -17,8 +17,6 @@ class Program
         job2._startYear = 2016;
         job2._endYear = 2024;
 
-        job1.Display();
-        job2.Display();
 
         Resume resume1 = new Resume();
         resume1._name = "Allison Rose";
