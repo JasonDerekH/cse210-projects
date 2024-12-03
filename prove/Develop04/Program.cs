@@ -1,12 +1,14 @@
 using System;
 using System.ComponentModel.Design;
 
+//To exceed requirements I used new features like .KeyAvailable() as well as modified the BreatheIn and BreathOut functions.
 class Program
 {
+    
     static void Main(string[] args)
     {
         string response = Menu();
-        while(int.Parse(response) > 0 && int.Parse(response) < 4)
+        while(int.Parse(response) > 0 && int.Parse(response) <= 4)
         {
             if(response == "1")
             {
@@ -26,7 +28,16 @@ class Program
                 activity.Welcome();
                 activity.RunActivity();
             }
-            response = Menu();
+            else if(response == "4")
+            {
+                Console.WriteLine("Thanks for using the mindfulness program!");
+                
+                response = "-5";
+            }
+            if(response != "4")
+            {
+                response = Menu();
+            }
         }
     }
 

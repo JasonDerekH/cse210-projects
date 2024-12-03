@@ -3,7 +3,8 @@ using System.Runtime.InteropServices;
 
 class BreathingActivity : Activity
 {
-
+    private int inhaleTime;
+    private int exhaleTime;
     //For stretch I could include a function to calculate best inhale and exhale times.
     public BreathingActivity()
     {
@@ -19,26 +20,50 @@ class BreathingActivity : Activity
     }
     public void BreatheIn()
     {
-        //Displays breath in prompt
-        Console.Write("Breathe in...4");
-        Thread.Sleep(1000);
-        for(int i = 0; i < 4;i++)
-        {
-            Console.Write($"\b{3-i}");
-            Thread.Sleep(1000);
+        //Based on time frame, it will space the breaths differently. As well as randomizes it a bit.
+        if(duration % 6 == 0)
+        { 
+            inhaleTime = 2;
         }
-        Console.WriteLine();
+        else if(duration % 8 == 0)
+        {
+            inhaleTime = 3;
+        }
+        else{
+            inhaleTime = 4;
+        }
+        Console.Write($"Breathe in...{inhaleTime}");
+            Thread.Sleep(1000);
+            for(int i = 0; i < inhaleTime;i++)
+            {
+                Console.Write($"\b{inhaleTime-1-i}");
+                Thread.Sleep(1000);
+            }
+            Console.WriteLine();
     }
 
     public void BreatheOut()
     {
-        Console.Write("Now breathe out...6");
-        Thread.Sleep(1000);
-        for(int i = 0; i < 6; i++)
+        //Based on time frame, it will space the breaths differently. As well as randomizes it a bit.
+        if(duration % 6 == 0)
+        { 
+            exhaleTime = 4;
+        }
+        else if(duration % 8 == 0)
         {
-            Console.Write($"\b{5-i}");
+            inhaleTime = 5;
+        }
+        else{
+            inhaleTime = 6;
+        }
+        Console.Write($"Now breathe out...{exhaleTime}");
+        Thread.Sleep(1000);
+        for(int i = 0; i < exhaleTime; i++)
+        {
+            Console.Write($"\b{exhaleTime-1-i}");
             Thread.Sleep(1000);
         }
+        Console.WriteLine();
     }
 
     public void RunActivity()
