@@ -15,7 +15,7 @@ abstract class Goal{
 
     public void GetName()
     {
-        Console.Write("What is the name of your goal?");
+        Console.Write("What is the name of your goal? ");
         name = Console.ReadLine();
     }
 
@@ -23,7 +23,7 @@ abstract class Goal{
 
     public void GetDescription()
     {
-        Console.Write("What is a short description of it?");
+        Console.Write("What is a short description of it? ");
         description = Console.ReadLine();
     }
 
